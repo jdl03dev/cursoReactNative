@@ -1,131 +1,70 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from "react";
+import {Text, StyleSheet, View, TextInput, Image, Touchable, TouchableOpacity } from "react-native";
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const estilos = StyleSheet.create({
+  contenedor:{
+    width: '100%',
+    height: 160,
+    padding: 20,
+    backgroundColor: '0000'
+  },
+  titulo:{
+    textAlign: 'center',
+    fontSize:50,
+    color:'#3e4444',
+    marginBottom: 5
+  },
+  texto:{
+    fontSize: 30,
+    color: '#3e4444',
+    textAlign: 'right'
+  },
+  
+  input:{
+    borderColor: 'black',
+    borderWidth: 1.5,
+    borderRadius: 15
+  },
+  boton:{
+    width: 20,
+    height: 20,
+    
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+  },
+   icon: {
+    position: 'absolute', // Posiciona el ícono de forma absoluta
+    right: 10, // Alinea el ícono al lado derecho
+    top: '50%', // Centra el ícono verticalmente
+    transform: [{ translateY: -10 }], // Ajusta la alineación exacta del ícono (opcional)
+    width: 20, // Ajusta el tamaño del ícono
+    height: 20, // Ajusta el tamaño del ícono
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+  },
+  emoji:{
+    width:50,
+    height:50
+  }
+
+})
+
+export default function App(){
+return(
+  <View style={estilos.contenedor}>
+    <Text style={estilos.titulo}>Mis Tareas</Text>
+    <View>
+      
+      <TextInput placeholder="Escribir:" style={estilos.input}/>
+      
+      <TouchableOpacity >
+        <Image style={estilos.icon} source={require('./img/send_icon.png')}/>
+      </TouchableOpacity>
+
+
     </View>
-  );
+
+    <Image style={estilos.emoji} source={require('./img/emoji.jpg')}/>
+    
+  </View>
+)
 }
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  /*
-   * To keep the template simple and small we're adding padding to prevent view
-   * from rendering under the System UI.
-   * For bigger apps the recommendation is to use `react-native-safe-area-context`:
-   * https://github.com/AppAndFlow/react-native-safe-area-context
-   *
-   * You can read more about it here:
-   * https://github.com/react-native-community/discussions-and-proposals/discussions/827
-   */
-  const safePadding = '5%';
-
-  return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
