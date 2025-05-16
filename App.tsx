@@ -1,69 +1,120 @@
 import React from "react";
-import {Text, StyleSheet, View, TextInput, Image, Touchable, TouchableOpacity } from "react-native";
+import {Text, StyleSheet, View, TextInput, Image, Touchable, TouchableOpacity, Dimensions, FlatList } from "react-native";
 
 
 const estilos = StyleSheet.create({
   contenedor:{
     width: '100%',
-    height: 160,
-    padding: 20,
-    backgroundColor: '0000'
+  //  height: 160,
+  //  padding: 20,
+  //  backgroundColor: '0000'
   },
-  titulo:{
+  texto:{
     textAlign: 'center',
     fontSize:50,
     color:'#3e4444',
     marginBottom: 5
   },
-  texto:{
-    fontSize: 30,
-    color: '#3e4444',
-    textAlign: 'right'
-  },
   
   input:{
     borderColor: 'black',
     borderWidth: 1.5,
-    borderRadius: 15
+    borderRadius: 15,
+    flex: 1
   },
-  boton:{
-    width: 20,
-    height: 20,
+  cont_img:{
+    display:'flex',
+    alignSelf: 'center',
+    marginLeft: 'auto',
+    marginTop: 20,
+    marginRight: 'auto',
+  },
+
+  img_login:{
+    width: 100,
+    height:100,
     
-
   },
-   icon: {
-    position: 'absolute', // Posiciona el ícono de forma absoluta
-    right: 10, // Alinea el ícono al lado derecho
-    top: '50%', // Centra el ícono verticalmente
-    transform: [{ translateY: -10 }], // Ajusta la alineación exacta del ícono (opcional)
-    width: 20, // Ajusta el tamaño del ícono
-    height: 20, // Ajusta el tamaño del ícono
 
+  icon:{
+  width:60,
+  height:50,
+  marginTop: 5,
+  marginBottom: 5
   },
-  emoji:{
-    width:50,
-    height:50
+
+  boton:{
+    width:Dimensions.get("screen").width*0.15,
+
+  //backgroundColor:'#d5f4e6',
+  //borderColor:'grey',
+  //borderWidth:1.5,
+  //borderRadius:10,
+  //justifyContent:'center',
+  //alignItems:'center'
+  },
+
+  Ctareas:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    gap:10,
+    marginTop:10
+  },
+  dataTask:{
+    paddingVertical:20,
+    borderBottomColor: '#6f6f6f',
+    borderBottomWidth:1
   }
-
 })
+const tasks=[{
+  titulo:"Estudiar",
+  done:false,
+  date:new Date()
+},
+{
+  titulo:"Jugar",
+  done:false,
+  date:new Date()
+},
+{
+  titulo:"Caminar",
+  done:false,
+  date:new Date()
+}
+]
+interface Task{
+  titulo:string,
+  done:boolean,
+  date:Date
+}
+function renderItem({item}:{item:Task}){
+  return (
+  <View style={estilos.dataTask}>
+  <Text>{item.titulo}</Text>
+  </View>
+  )
+}
 
 export default function App(){
 return(
   <View style={estilos.contenedor}>
-    <Text style={estilos.titulo}>Mis Tareas</Text>
-    <View>
-      
-      <TextInput placeholder="Escribir:" style={estilos.input}/>
-      
-      <TouchableOpacity >
-        <Image style={estilos.icon} source={require('./img/send_icon.png')}/>
-      </TouchableOpacity>
-
-
+    <Text style={estilos.texto}>Tareas</Text>
+    <View style={estilos.cont_img}>
+          <Image source={require('./img/list.png')} style={estilos.img_login}/>
     </View>
 
-    <Image style={estilos.emoji} source={require('./img/emoji.jpg')}/>
+    <View style={estilos.Ctareas}>  
+      <TextInput placeholder="Escribir:" style={estilos.input}/>
+      <TouchableOpacity style={estilos.boton}>
+        <Image source={require('./img/addTask_icon.png')} style={estilos.icon}/>
+      </TouchableOpacity>
+    </View>
+    <View>
+      <FlatList
+      renderItem={renderItem}
+      data={tasks}
+      />
+    </View>     
     
   </View>
 )
