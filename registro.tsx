@@ -10,6 +10,7 @@ import {
   TouchableWithoutFeedback,
   Animated,
 } from "react-native";
+import { Picker } from '@react-native-picker/picker';
 
 const estilos = StyleSheet.create({
   fondo: {
@@ -46,9 +47,21 @@ const estilos = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
+  texto:{
+    textAlign: 'center',
+    fontSize:50,
+    color:'white',
+    marginBottom: 50
+  },
+  picker: {
+    height: 50,
+    width: '70%',
+    backgroundColor: '#f0f0f0',
+    borderRadius: 5,
+  },
 });
 
-export default function Login() {
+export default function Registro() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const animacion = useRef(new Animated.Value(300)).current; // comienza fuera de la pantalla
 
@@ -78,18 +91,24 @@ export default function Login() {
                 alignItems: "center",
               }}
             >
-              <Image
-                source={require("./img/login.png")}
-                style={estilos.img_Loging}
-              />
-              <TextInput style={estilos.input} placeholder="Usuario" />
-              <TextInput style={estilos.input} placeholder="Contraseña"
-                secureTextEntry
-              />
+            <Text style={estilos.texto}> Sing Up</Text>
 
-              <TouchableOpacity style={estilos.boton}>
-                <Text style={estilos.botonTexto}>Sing In</Text>
-              </TouchableOpacity>
+              <TextInput style={estilos.input} placeholder="Nombre" />
+
+              <Text style={estilos.input}> Tipo Documento: </Text>
+              
+              <Picker style={estilos.picker}>
+                <Picker.Item label ="CC" />
+                <Picker.Item label = "CE"/>
+
+              </Picker>
+              
+              <TextInput style={estilos.input} placeholder="Documento"/>
+              <TextInput style={estilos.input} placeholder="Email-Address"/>
+              <TextInput style={estilos.input} placeholder="Telefono"/>
+              <TextInput style={estilos.input} placeholder="Contraseña"secureTextEntry/>
+              <TextInput style={estilos.input} placeholder="Confirmar Contraseña"secureTextEntry/>
+              
               <TouchableOpacity style={estilos.boton}>
                 <Text style={estilos.botonTexto}>Sign Up</Text>
               </TouchableOpacity>

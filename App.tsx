@@ -1,6 +1,6 @@
 import React from "react";
 import {Text, StyleSheet, View, TextInput, Image, Touchable, TouchableOpacity, Dimensions, FlatList } from "react-native";
-
+import CheckBox from '@react-native-community/checkbox';
 
 const estilos = StyleSheet.create({
   contenedor:{
@@ -64,6 +64,11 @@ const estilos = StyleSheet.create({
     paddingVertical:20,
     borderBottomColor: '#6f6f6f',
     borderBottomWidth:1
+  },
+  check:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    
   }
 })
 const tasks=[{
@@ -89,7 +94,10 @@ interface Task{
 }
 function renderItem({item}:{item:Task}){
   return (
+
+  //const [isChecked, setIsChecked] = useState(false);
   <View style={estilos.dataTask}>
+
   <Text>{item.titulo}</Text>
   </View>
   )
