@@ -10,43 +10,7 @@ import {
   TouchableWithoutFeedback,
   Animated,
 } from "react-native";
-
-const estilos = StyleSheet.create({
-  fondo: {
-    flex: 1,
-  },
-  contenedor: {
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-  },
-  input: {
-    paddingHorizontal: 80,
-    borderColor: "black",
-    borderWidth: 1.5,
-    borderRadius: 15,
-    marginTop: 10,
-
-    backgroundColor: "#fff",
-  },
-  img_Loging: {
-    width: 208,
-    height: 208,
-    marginBottom: 20,
-  },
-  boton: {
-    marginTop: 20,
-    backgroundColor: "#2196F3",
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
-    gap: 15,
-  },
-  botonTexto: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
-});
+import estilos from "./Style"
 
 export default function Login() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -66,7 +30,7 @@ export default function Login() {
   return (
     <TouchableWithoutFeedback onPress={mostrarConAnimacion}>
       <ImageBackground
-        source={require("./img/fondo_Login.jpg")}
+        source={require("../img/fondo_Login.jpg")}
         style={estilos.fondo}
         resizeMode="cover"
       >
@@ -79,11 +43,11 @@ export default function Login() {
               }}
             >
               <Image
-                source={require("./img/login.png")}
-                style={estilos.img_Loging}
+                source={require("../img/login.png")}
+                style={estilos.img_Login}
               />
-              <TextInput style={estilos.input} placeholder="Usuario" />
-              <TextInput style={estilos.input} placeholder="Contraseña"
+              <TextInput style={estilos.inputLogin} placeholder="Usuario" />
+              <TextInput style={estilos.inputLogin} placeholder="Contraseña"
                 secureTextEntry
               />
 

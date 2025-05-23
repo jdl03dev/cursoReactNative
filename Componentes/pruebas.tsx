@@ -4,31 +4,38 @@ import {
   StyleSheet,
   View,
   TextInput,
-  Image,
   TouchableOpacity,
   ImageBackground,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
   TouchableWithoutFeedback,
+  Keyboard,
   Animated,
 } from "react-native";
+
 import { Picker } from '@react-native-picker/picker';
+import { Provider as PaperProvider } from 'react-native-paper';
+
 
 const estilos = StyleSheet.create({
   fondo: {
     flex: 1,
   },
   contenedor: {
+
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
+    padding: 20,
   },
   input: {
-    paddingHorizontal: 80,
+    width:300,
     borderColor: "black",
-    borderWidth: 1.5,
+    borderWidth: 1.8,
     borderRadius: 15,
     marginTop: 10,
-
-    backgroundColor: "#fff",
+    textAlign:'center',
+    backgroundColor: "white",
   },
   img_Loging: {
     width: 208,
@@ -51,19 +58,27 @@ const estilos = StyleSheet.create({
     textAlign: 'center',
     fontSize:50,
     color:'white',
-    marginBottom: 50
-  },
+    marginTop:50,
+    marginBottom: 15,
+    },
   picker: {
     height: 50,
     width: '70%',
     backgroundColor: '#f0f0f0',
     borderRadius: 5,
   },
+  scrollContainer: {
+  flexGrow: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  },
+
 });
 
 export default function Registro() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const animacion = useRef(new Animated.Value(300)).current; // comienza fuera de la pantalla
+  const [tipoDocumento, setTipoDocumento] = useState("CC");
 
   const mostrarConAnimacion = () => {
     if (!mostrarFormulario) {
@@ -83,6 +98,20 @@ export default function Registro() {
         style={estilos.fondo}
         resizeMode="cover"
       >
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : undefined}
+          style={{ flex: 1 }}
+        >
+          <ScrollView
+            horizontal
+            contentContainerStyle={estilos.scrollContainer}
+            keyboardShouldPersistTaps="handled"
+          >
+            <ScrollView
+              contentContainerStyle={estilos.scrollContainer}
+              keyboardShouldPersistTaps="handled"
+            ></ScrollView>
+
         <View style={estilos.contenedor}>
           {mostrarFormulario && (
             <Animated.View
@@ -95,17 +124,10 @@ export default function Registro() {
 
               <TextInput style={estilos.input} placeholder="Nombre" />
 
-              <Text style={estilos.input}> Tipo Documento: </Text>
-              
-              <Picker style={estilos.picker}>
-                <Picker.Item label ="CC" />
-                <Picker.Item label = "CE"/>
-
-              </Picker>
-              
-              <TextInput style={estilos.input} placeholder="Documento"/>
-              <TextInput style={estilos.input} placeholder="Email-Address"/>
-              <TextInput style={estilos.input} placeholder="Telefono"/>
+              <TextInput style={estilos.input} placeholder="Tipo de Documento"/>
+              <TextInput keyboardType="numeric" style={estilos.input} placeholder="Numero de Documento"/>
+              <TextInput keyboardType="email-address" style={estilos.input} placeholder="Email-Address"/>
+              <TextInput keyboardType="numeric" style={estilos.input} placeholder="Telefono"/>
               <TextInput style={estilos.input} placeholder="Contraseña"secureTextEntry/>
               <TextInput style={estilos.input} placeholder="Confirmar Contraseña"secureTextEntry/>
               
@@ -115,6 +137,8 @@ export default function Registro() {
             </Animated.View>
           )}
         </View>
+          </ScrollView>
+        </KeyboardAvoidingView>        
       </ImageBackground>
     </TouchableWithoutFeedback>
   );
