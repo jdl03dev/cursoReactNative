@@ -4,10 +4,23 @@ const estilos = StyleSheet.create({
   fondo: {
     flex: 1,
   },
+  conten_Form:{  //Contenedor Principal de Componente Registro
+    justifyContent: "center",
+    padding: 20,
+    alignItems: "center",
+  },
   contenedor: {
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
+  },
+  conten_Picker: {
+  borderRadius: 15,
+  overflow: 'hidden', // 👈 importante para que el picker respete los bordes redondeados
+  borderColor: '#999',
+  marginVertical: 10,
+  width: '80%',
+  marginBottom: -0.1,
   },
   inputLogin: {
     paddingHorizontal: 80,
@@ -25,6 +38,12 @@ const estilos = StyleSheet.create({
     marginTop: 10,
     textAlign:'center',
     backgroundColor: "white",
+  },
+  picker: {
+    height: 50,
+    backgroundColor: 'white',
+    borderRadius: 15,
+   
   },
   cont_img:{
     display:'flex',
@@ -88,12 +107,6 @@ const estilos = StyleSheet.create({
     marginTop:50,
     marginBottom: 15,
     },
-  picker: {
-    height: 50,
-    width: '70%',
-    backgroundColor: '#f0f0f0',
-    borderRadius: 5,
-  },
   scrollContainer: {
   flexGrow: 1,
   justifyContent: "center",
