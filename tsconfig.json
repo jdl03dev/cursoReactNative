@@ -1,3 +1,18 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "target": "esnext",                       // Define la versión de JavaScript de salida
+    "module": "Node16",                       // Define el sistema de módulos (ajustado para Node16)
+    "jsx": "react-native",                    // Soporte para JSX en React Native
+    "moduleResolution": "node16",             // Resolución de módulos estilo Node.js (compatible con customConditions)
+    "esModuleInterop": true,                  // Permite la interoperabilidad con módulos CommonJS
+    "allowSyntheticDefaultImports": true,     // Permite importar por defecto módulos sin default export
+    "skipLibCheck": true,                     // Omite la comprobación de tipos en archivos de declaración
+    "resolveJsonModule": true,                // Permite importar archivos .json como módulos
+    "noEmit": true,                           // No genera archivos de salida
+    "isolatedModules": true,                  // Asegura que cada archivo sea tratado como un módulo independiente
+    "strict": false                           // Desactiva todas las comprobaciones estrictas
+  },
+  "include": ["./Componentes/*", "App.tsx"],
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }

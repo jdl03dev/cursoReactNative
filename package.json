@@ -12,11 +12,12 @@
   "dependencies": {
     "@react-native-community/checkbox": "^0.5.20",
     "@react-native-picker/picker": "^2.11.0",
-    "react": "19.0.0",
-    "react-native": "0.79.2",
+    "react": "^19.0.0",
+    "react-native": "^0.79.2",
     "react-native-element-dropdown": "^2.12.4",
     "react-native-paper": "^5.14.5",
     "react-native-paper-dropdown": "^2.3.1",
+    "react-native-reanimated": "^3.17.5",
     "react-native-vector-icons": "^10.2.0",
     "update": "^0.4.2"
   },
@@ -30,7 +31,7 @@
     "@react-native/babel-preset": "0.79.2",
     "@react-native/eslint-config": "0.79.2",
     "@react-native/metro-config": "0.79.2",
-    "@react-native/typescript-config": "0.79.2",
+    "@react-native/typescript-config": "^0.79.2",
     "@types/jest": "^29.5.13",
     "@types/react": "^19.0.0",
     "@types/react-test-renderer": "^19.0.0",
@@ -46,5 +47,13 @@
   "description": "This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdl03dev/cursoReactNative.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jdl03dev/cursoReactNative/issues"
+  },
+  "homepage": "https://github.com/jdl03dev/cursoReactNative#readme"
 }
