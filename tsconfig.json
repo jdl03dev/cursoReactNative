@@ -1,4 +1,4 @@
-{
+ {
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
     "target": "esnext",                       // Define la versión de JavaScript de salida
