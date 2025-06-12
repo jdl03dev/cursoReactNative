@@ -4,12 +4,36 @@ const estilos = StyleSheet.create({
   fondo: {
     flex: 1,
   },
-  conten_Form:{  //Contenedor Principal de Componente Registro
+  addButton:{
+   // marginHorizontal:80,
+    backgroundColor: "#2196F3",
+    padding: 10,
+    borderRadius: 8
+  },
+  boton: {
+    width: 300,
+    marginTop: 20,
+    backgroundColor: "#2196F3",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    gap: 15,
+  },
+  botonTexto: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
+  contReg:{  //Contenedor Principal de Componente Registro
     justifyContent: "center",
     padding: 20,
     alignItems: "center",
   },
-  contenedor: {
+   contLog:{  //Contenedor Principal de Componente Registro
+    justifyContent: "center",
+    padding: 20,
+    alignItems: "center",
+  },
+  contenedorApp: {
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -22,29 +46,6 @@ const estilos = StyleSheet.create({
   width: '80%',
   marginBottom: -0.1,
   },
-  inputLogin: {
-    paddingHorizontal: 80,
-    borderColor: "black",
-    borderWidth: 1.5,
-    borderRadius: 15,
-    marginTop: 10,
-    backgroundColor: "#fff",
-  },
-  input: {
-    width:300,
-    borderColor: "black",
-    borderWidth: 1.8,
-    borderRadius: 15,
-    marginTop: 10,
-    textAlign:'center',
-    backgroundColor: "white",
-  },
-  picker: {
-    height: 50,
-    backgroundColor: 'white',
-    borderRadius: 15,
-   
-  },
   cont_img:{
     display:'flex',
     alignSelf: 'center',
@@ -52,9 +53,30 @@ const estilos = StyleSheet.create({
     marginTop: 20,
     marginRight: 'auto',
   },
+  inputLog: {
+    width:300,
+    borderColor: "black",
+    borderWidth: 1.5,
+    borderRadius: 15,
+    marginTop: 10,
+    backgroundColor: "#fff",
+  },
+  inputReg: {
+    width:300,
+    height: 50,
+    borderColor: "#2196F3",
+    borderWidth: 1.8,
+    borderRadius: 15,
+    marginTop: 10,
+    textAlign:'left',
+    backgroundColor: "white",
+    opacity:0.95,
+    
+  },
   img_Login:{
     width: 100,
     height:100,
+    marginTop: 100,
   },
   icon:{
   width:60,
@@ -62,27 +84,21 @@ const estilos = StyleSheet.create({
   marginTop: 5,
   marginBottom: 5
   },
-  botonAdd:{
-    width:Dimensions.get("screen").width*0.15,
-    borderRadius: 10,
-  },
-  boton: {
-    marginTop: 20,
-    backgroundColor: "#2196F3",
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
-    gap: 15,
-  },
-  botonTexto: {
-    color: "#fff",
-    fontWeight: "bold",
+  picker: {
+    height: 50,
+    borderColor: "red",
+    backgroundColor: 'white',
+    borderRadius: 15,
+    opacity:0.95,
+    overflow:'hidden',
+   
   },
   textoApp:{
-    textAlign: 'center',
+    
     fontSize:50,
-    color:'#3e4444',
-    marginBottom: 5
+    color:'white',
+    marginTop:100,
+    marginBottom: 50
   },
   Ctareas:{
     flexDirection:'row',
@@ -90,18 +106,20 @@ const estilos = StyleSheet.create({
     gap:10,
     marginTop:10
   },
-  dataTask:{
+  dataTask0:{
     paddingVertical:20,
     borderBottomColor: '#6f6f6f',
     borderBottomWidth:1
   },
   check:{
-    flexDirection: 'row',
-    alignItems: 'center',
-    
+
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    padding: 20,
+    borderBlockColor: 'white'
   },
   texto:{
-    textAlign: 'center',
+    textAlign:'center',
     fontSize:50,
     color:'white',
     marginTop:50,
@@ -112,6 +130,28 @@ const estilos = StyleSheet.create({
   justifyContent: "center",
   alignItems: "center",
   },
+
+tareaHecha: {
+  textDecorationLine: 'line-through',
+  color: '#999',
+},
+textoTarea: {
+  flex: 1,
+  fontSize: 16,
+},
+botonEliminar: {
+  fontSize: 18,
+  paddingHorizontal: 10,
+},
+dataTask: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  padding: 10,
+  marginVertical: 4,
+  backgroundColor: '#f0f0f0',
+  borderRadius: 5,
+},
+
 })
 
 export default estilos

@@ -1,61 +1,32 @@
 import React from "react";
-import {Text, StyleSheet, View, TextInput, Image, Touchable, TouchableOpacity, Dimensions, FlatList } from "react-native";
-import CheckBox from '@react-native-community/checkbox';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { enableScreens } from 'react-native-screens';
+enableScreens();
 
-import estilos from "./Style"
-const tasks=[{
-  titulo:"Estudiar",
-  done:false,
-  date:new Date()
-},
-{
-  titulo:"Jugar",
-  done:false,
-  date:new Date()
-},
-{
-  titulo:"Caminar",
-  done:false,
-  date:new Date()
-}
-]
-interface Task{
-  titulo:string,
-  done:boolean,
-  date:Date
-}
-function renderItem({item}:{item:Task}){
+import Registro from "./Registro";
+import Login from "./Login";
+import Tareas from "./Tareas";
+
+export type RootStackParamList = {
+  Login: undefined;
+  Registro: undefined;
+  Tareas: undefined;
+ // Details: { userId: string }; // si piensas usarla
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const App = () => {
   return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Registro" component={Registro} />
+        <Stack.Screen name="Tareas" component={Tareas} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-  //const [isChecked, setIsChecked] = useState(false);
-  <View style={estilos.dataTask}>
-
-  <Text>{item.titulo}</Text>
-  </View>
-  )
-}
-
-export default function App(){
-return(
-  <View style={estilos.contenedor}>
-    <Text style={estilos.texto}>Tareas</Text>
-    <View style={estilos.cont_img}>
-          <Image source={require('../img/list.png')} style={estilos.img_Login}/>
-    </View>
-
-    <View style={estilos.Ctareas}>  
-      <TextInput placeholder="Escribir:" style={estilos.input}/>
-      <TouchableOpacity style={estilos.boton}>
-        <Image source={require('../img/addTask_icon.png')} style={estilos.icon}/>
-      </TouchableOpacity>
-    </View>
-    <View>
-      <FlatList
-      renderItem={renderItem}
-      data={tasks}
-      />
-    </View>     
-    
-  </View>
-)
-}
+export default App;

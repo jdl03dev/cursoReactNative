@@ -26,7 +26,7 @@ export default function Registro() {
       <ScrollView
         contentContainerStyle={{ flexGrow: 1 }}
       >
-      <View style={estilos.conten_Form}>
+      <View style={estilos.contReg}>
         <Text style={estilos.texto}> Sing Up</Text>
           <View style={estilos.conten_Picker}>
             
@@ -35,19 +35,31 @@ export default function Registro() {
               style={estilos.picker}
               onValueChange={(itemValue) => setSeleccionado(itemValue)}
             >
-              <Picker.Item label="Tarjeta de Identidad" value="TI" style={estilos.input} />
-              <Picker.Item label="Cedula de Ciudadania" value="CC" style={estilos.input} />
-              <Picker.Item label="Pasaporte" value="PP" style={estilos.input} />
+              <Picker.Item label="Tarjeta de Identidad" value="TI" style={estilos.inputReg} />
+              <Picker.Item label="Cedula de Ciudadania" value="CC" style={estilos.inputReg}/>
+              <Picker.Item label="Pasaporte" value="PP" style={estilos.inputReg}/>
             </Picker>
           </View>
           <View>
-          
-                <TextInput style={estilos.input} placeholder="Nombre" />
-                <TextInput keyboardType="numeric" style={estilos.input} placeholder="Numero de Documento"/>
-                <TextInput keyboardType="email-address" style={estilos.input} placeholder="Email-Address"/>
-                <TextInput keyboardType="numeric" style={estilos.input} placeholder="Telefono"/>
-                <TextInput style={estilos.input} placeholder="Contraseña"secureTextEntry/>
-                <TextInput style={estilos.input} placeholder="Confirmar Contraseña"secureTextEntry/>
+
+                <TextInput keyboardType="numeric" placeholder="Numero de Documento" 
+                style={estilos.inputReg}
+                />
+                <TextInput placeholder="Nombre" 
+                style={estilos.inputReg}
+                />
+                <TextInput keyboardType="email-address" placeholder="Email-Address" 
+                style={estilos.inputReg}
+                />
+                <TextInput keyboardType="numeric" placeholder="Telefono" 
+                style={estilos.inputReg}
+                />
+                <TextInput placeholder="Contraseña"secureTextEntry 
+                style={estilos.inputReg}
+                />
+                <TextInput placeholder="Confirmar Contraseña"secureTextEntry 
+                style={estilos.inputReg}
+                />
           </View>
                 <TouchableOpacity style={estilos.boton}>
                   <Text style={estilos.botonTexto}>Sign Up</Text>

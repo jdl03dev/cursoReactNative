@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import {
   Text,
-  StyleSheet,
   View,
   TextInput,
   Image,
@@ -10,11 +9,15 @@ import {
   TouchableWithoutFeedback,
   Animated,
 } from "react-native";
-import estilos from "./Style"
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "./App"; // Asegúrate de que esté bien definido
+import estilos from "./Style";
 
-export default function Login() {
+type Props = NativeStackScreenProps<RootStackParamList, "Login">;
+
+const Login: React.FC<Props> = ({ navigation }) => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  const animacion = useRef(new Animated.Value(300)).current; // comienza fuera de la pantalla
+  const animacion = useRef(new Animated.Value(300)).current;
 
   const mostrarConAnimacion = () => {
     if (!mostrarFormulario) {
@@ -34,7 +37,7 @@ export default function Login() {
         style={estilos.fondo}
         resizeMode="cover"
       >
-        <View style={estilos.contenedor}>
+        <View style={estilos.contLog}>
           {mostrarFormulario && (
             <Animated.View
               style={{
@@ -46,14 +49,20 @@ export default function Login() {
                 source={require("../img/login.png")}
                 style={estilos.img_Login}
               />
-              <TextInput style={estilos.inputLogin} placeholder="Usuario" />
-              <TextInput style={estilos.inputLogin} placeholder="Contraseña"
+              <TextInput style={estilos.inputLog} placeholder="Usuario" />
+              <TextInput
+                style={estilos.inputLog}
+                placeholder="Contraseña"
                 secureTextEntry
               />
 
-              <TouchableOpacity style={estilos.boton}>
-                <Text style={estilos.botonTexto}>Sing In</Text>
+              <TouchableOpacity
+                style={estilos.boton}
+                onPress={() => navigation.navigate("Home")} // Cambia esto si tienes otra pantalla
+              >
+                <Text style={estilos.botonTexto}>Sign In</Text>
               </TouchableOpacity>
+
               <TouchableOpacity style={estilos.boton}>
                 <Text style={estilos.botonTexto}>Sign Up</Text>
               </TouchableOpacity>
@@ -63,4 +72,6 @@ export default function Login() {
       </ImageBackground>
     </TouchableWithoutFeedback>
   );
-}
+};
+
+export default Login;
